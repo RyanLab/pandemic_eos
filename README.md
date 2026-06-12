@@ -1,6 +1,9 @@
 # pandemic_eos
 Repository storing the code and data for the Pandemic-Earth Observations Systems Catalog Shiny App created in the QDEC Lab.
 
+Jakob Meredith (under the supervision of Dr. Sadie Ryan)
+6/12/2026
+
 About:
 This is a dashboard showing the results of a literature review conducted by Dr. Sadie Ryan and Dr. Catherine Lippi on the subject of remote earth observation systems and their potential use in predicitng pandemic risk around the world. Each article that was found through the review process was cataloged and assessed for numerous different factors which are seen by the authors as determinants of an effective pandemic risk assessment with observation systems. 
 
