@@ -282,8 +282,7 @@ ui <- navbarPage("PAND_EOS Articles Catalog",
                            tags$li("Satellite used"),
                            tags$li("Remote sensor used"),
                            tags$li("Spatial resolution used"),
-                           tags$li("Geophysical environmental variables included"),
-                           tags$li("Terrestrial variables included")
+                           tags$li("Geophysical environmental variables included")
                          ),
                          tags$li("It is our hope that by compiling these resources, we will be able to find common ground between them that can be used to develop a standardized pipeline of pandemic prediction using Earth observation systems (EOS)")
                      )
@@ -405,7 +404,6 @@ ui <- navbarPage("PAND_EOS Articles Catalog",
                            "Sensor Used" = "Sensor",
                            "Spatial Resolution" = "rescat",
                            "Geophysical Variables" = "genvar",
-                           "Terrestrial Variables" = "tervar",
                            "Year" = "date"
                          ),
                          selected = "NewSat"
@@ -702,8 +700,7 @@ server <- function(input, output, session) {
       list(label = "Satellite Reported: ", col = "satrep"),
       list(label = "Sensor Reported: ", col = "sensrep"),
       list(label = "Spatial Resolution Reported: ", col = "resrep"),
-      list(label = "Geophysical Variables Reported: ", col = "georep"),
-      list(label = "Terrestrial Variables Reported: ", col = "terrep")
+      list(label = "Geophysical Variables Reported: ", col = "georep")
     )
     
     rows <- lapply(fields, function(f) {
@@ -742,8 +739,7 @@ server <- function(input, output, session) {
       list(label = "Satellite Reported", col = "satrep"),
       list(label = "Sensor Reported", col = "sensrep"),
       list(label = "Spatial Resolution Reported", col = "resrep"),
-      list(label = "Geophysical Variables Reported", col = "georep"),
-      list(label = "Terrestrial Variables Reported", col = "terrep")
+      list(label = "Geophysical Variables Reported", col = "georep")
     )
     
     rows <- lapply(fields, function(f) {
@@ -852,7 +848,6 @@ server <- function(input, output, session) {
                     "NewSat" = "Satellite",
                     "disease" = "Disease",
                     "scale2" = "Study Scale",
-                    "tervar" = "Terrestrial Variables",
                     "Sensor" = "Sensor",
                     "distype" = "Disease Type",
                     "genvar" = "Geophysical Variables",
@@ -972,7 +967,6 @@ server <- function(input, output, session) {
                       "NewSat" = "Satellite",
                       "disease" = "Disease",
                       "scale2" = "Study Scale",
-                      "tervar" = "Terrestrial Variables",
                       "Sensor" = "Sensor",
                       "distype" = "Disease Type",
                       "genvar" = "Geophysical Variables",
@@ -1009,7 +1003,6 @@ server <- function(input, output, session) {
                       "NewSat" = "Satellite",
                       "disease" = "Disease",
                       "scale2" = "Study Scale",
-                      "tervar" = "Terrestrial Variables",
                       "Sensor" = "Sensor",
                       "distype" = "Disease Type",
                       "genvar" = "Geophysical Variables",
@@ -1119,8 +1112,7 @@ server <- function(input, output, session) {
                             "satrep" = "Satellite Used",
                             "sensrep" = "Sensor Used",
                             "resrep" = "Spatial Resolution",
-                            "georep" = "Geophysical Variables",
-                            "terrep" = "Terrestrial Variables"),
+                            "georep" = "Geophysical Variables"),
           reported = factor(reported, levels = c(0,1),
                             labels = c("Not Reported", "Reported")),
           short_title = ifelse(
