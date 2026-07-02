@@ -213,87 +213,12 @@ ui <- navbarPage("PAND_EOS Articles Catalog",
                            "))
                                   ),
                  
-                 tabPanel(
-                   "Home Page",
-                   titlePanel("Home"),
-                   sidebarLayout(
-                     sidebarPanel(
-                       h4("What is a pandemic?"),
-                       div(
-                         tags$b("What is a pandemic?"),
-                         tags$ul(
-                           tags$li("A pandemic is a disease outbreak that has spread beyond its native geographic region and is difficult to contain. Pandemics are caused by “pathogens”, which are microorganisms (or germs) that are spread through different ways to humans and which cause disease in humans."),
-                           tags$li("There are several different ways that rapid transmission can occur leading to a pandemic, including:"),
-                           tags$ul(
-                             tags$li("Airborne transmission (pathogens flying through the air on particles which are breathed by humans)"),
-                             tags$li("Waterborne transmission (pathogens moving through water which is consumed by humans)"),
-                             tags$li("Vectorborne transmission (pathogens being carried by insect vectors and transmitted to people through biting)"),
-                             tags$li("Foodborne transmission (pathogens moving through food and being consumed by humans)")
-                           ),
-                           tags$li("Very often, disease outbreaks are directly connected to environmental changes which expose people to pathogens that they have never encountered before.")
-                         ),
-                         tags$b("What is a satellite?"),
-                         tags$ul(
-                           tags$li("An artificial object moving in Earth’s gravitational field that may contain different types of instruments used for imaging (taking pictures) of the Earth’s surface."),
-                           tags$li("Many satellites will be sent into space with the specific goal of taking pictures of a certain type of geographic feature or phenomenon."),
-                           tags$li("This process of taking pictures of the Earth’s surface for analysis of environmental changes and processes is called “remote sensing”")
-                         ),
-                         tags$b("What is a sensor?"),
-                         tags$ul(
-                           tags$li("Sensors are instruments designed to be hosted by the satellite and take pictures of the Earth’s surface, often using different “bands” which correspond to varying spectra of light."),
-                           tags$li("These different “bands” of light are naturally emitted by reflections of sunlight off of the Earth’s surface, and a computer inside the sensor can decipher what different levels of light translate to in a quantitative value which is then used to represent the level of each type of radiation."),
-                           tags$li("Example: Red, Green, Blue, and Natural Infrared bands (among others) can be used to determine the level of vegetation growing in a specific area.")
-                         ),
-                         tags$b("What is a spatial resolution?"),
-                         tags$ul(
-                           tags$li("Sensors gather this information at a specific “spatial resolution”"),
-                           tags$li("Spatial resolution is the smallest area that the satellite is creating images at, and is typically described with dimensions such as 100 x 100 meters, which indicate the size of the pixel generated with the corresponding data."),
-                           tags$li("The pixel data is then transmitted to a receiver computer on Earth that compiles the information and generates images with all of the pixel data arranged together.")
-                         )
-                       )
-                     ),
-                     
-                   mainPanel(
-                     h4("Connecting the Dots"),
-                     div(
-                       tags$b("How are satellites used for predicting pandemics?"),
-                       tags$ul(
-                         tags$li("Since so many pandemics have transmission pathways that are caused by environmental processes, we know that examining environmental changes can be an impactful way to determine the risk of pandemics"),
-                         tags$li("By using remote sensing tools to look at different natural and anthropogenic environmental factors that play a role in disease transmission, we can understand the relative risk of pandemics in different areas around the world."),
-                         tags$ul(
-                           tags$li("Example: if deforestation is detected via remote sensing in some areas, we know that populations moving into those newly deforested areas are more vulnerable to vectorborne and zoonotic disease outbreaks because of proximity to animals and insect vectors.")
-                         ),
-                         tags$li("Remote sensing as a tool for pandemic preparedness has rapidly evolved since the global COVID-19 pandemic, with many research teams using it as a tool to study how environmental variables may have contributed to the spread of COVID-19"),
-                         tags$li("Oftentimes, remote sensing data is openly accessible for public use, meaning that anybody who is able to download and work with the data is able to use it to answer their research questions"),
-                         tags$li("This is particularly important in the context of global pandemic preparedness as it allows global researchers to approach this common goal from different angles")
-                       )
-                     ),
-                     h4("Future Developments"),
-                     div(
-                       tags$b("What is the purpose of this study?"),
-                       tags$ul(
-                         tags$li("The primary goal of this literature review is to examine the different studies that have been conducted related to pandemic preparedness using remote sensing systems and summarize the findings so that eventually a standardized pipeline for this process can be created"),
-                         tags$li("With that in mind, this review analyzes the articles through eight different lenses of replicability:"),
-                         tags$ul(
-                           tags$li("Disease reported"),
-                           tags$li("Type of disease"),
-                           tags$li("Study scale"),
-                           tags$li("Satellite used"),
-                           tags$li("Remote sensor used"),
-                           tags$li("Spatial resolution used"),
-                           tags$li("Geophysical environmental variables included"),
-                           tags$li("Terrestrial variables included")
-                         ),
-                         tags$li("It is our hope that by compiling these resources, we will be able to find common ground between them that can be used to develop a standardized pipeline of pandemic prediction using Earth observation systems (EOS)")
-                     )
-                   )
-                   )
-                   )
-                 ),
                  
                  tabPanel(
                    "Articles Map",
-                   titlePanel("Global Articles Map"),
+                   titlePanel(
+                     HTML("<div style='text-align: center; font-size: 1.25em; font-weight: bold; '>Pandemic Prediction in the Space Age: Use of Earth Observation (EOS) Data</div>")
+                     ),
                    # fluidRow(
                    #   column(
                    #     width = 8,
@@ -314,9 +239,25 @@ ui <- navbarPage("PAND_EOS Articles Catalog",
                              # selectInput("country_select", "Zoom to country", choices = NULL),
                              # 
                              # hr(),
-                             
-                             p("Select a variable to view a color-coded version of the map"),
 
+                             div(
+                               tags$b("Directions"),
+                               tags$ul(
+                                 tags$li("Select a variable below to view a color-coded version of the map"),
+                                 tags$li("Use the map to zoom in and click on the markers for more details about each study"),
+                                 tags$li("Studies with the same location are clustered together, so it will be necessary to zoom in on them to be able to click on each"),
+                                 tags$li("The cluster of studies inside of the orange circle in the center of the map correspond to those with a global or multinational scale which could not be assigned to one specific country"),
+                                 tags$li("Use the 'Reporting Checklist' below to see which necessary characteristics each study reports in its methodology"),
+                                 tags$li("Use the 'Overall Reporting Summary' below to see the total percentages of studies that report each necessary characteristic")
+                               )
+                             ),
+                             
+                             div(
+                               tags$b("Be sure to review the 'About' tab to learn more about the foundations and purpose of this study")
+                             ),
+                              
+                             br(),
+                             
                              radioButtons(
                                inputId = "color_by",
                                label = "Color Markers By:",
@@ -331,8 +272,6 @@ ui <- navbarPage("PAND_EOS Articles Catalog",
                                ),
                                selected = "none"
                              ),
-
-                             p("Use the map to click on the markers for more details"),
 
                              hr(),
 
@@ -386,7 +325,9 @@ ui <- navbarPage("PAND_EOS Articles Catalog",
                   
                  tabPanel(
                    "Charts and Graphs",
-                   titlePanel("Charts and Graphs"),
+                   titlePanel(
+                     HTML("<div style='text-align: center; font-size: 1.25em; font-weight: bold; '>Charts and Graphs</div>")
+                   ),
                    
                    sidebarLayout(
                      sidebarPanel(
@@ -492,6 +433,86 @@ ui <- navbarPage("PAND_EOS Articles Catalog",
                        )
                        # plotlyOutput("binary_heatmap", height = "700px")
                        )
+                   )
+                 ),
+                 
+                 tabPanel(
+                   "About",
+                   titlePanel(
+                     HTML("<div style='text-align: center; font-size: 1.25em; font-weight: bold; '>About the Study</div>")
+                   ),
+                   sidebarLayout(
+                     sidebarPanel(
+                       h4("General Concepts"),
+                       div(
+                         tags$b("What is a pandemic?"),
+                         tags$ul(
+                           tags$li("A pandemic is a disease outbreak that has spread beyond its native geographic region and is difficult to contain. Pandemics are caused by “pathogens”, which are microorganisms (or germs) that are spread through different ways to humans and which cause disease in humans."),
+                           tags$li("There are several different ways that rapid transmission can occur leading to a pandemic, including:"),
+                           tags$ul(
+                             tags$li("Airborne transmission (pathogens flying through the air on particles which are breathed by humans)"),
+                             tags$li("Waterborne transmission (pathogens moving through water which is consumed by humans)"),
+                             tags$li("Vectorborne transmission (pathogens being carried by insect vectors and transmitted to people through biting)"),
+                             tags$li("Foodborne transmission (pathogens moving through food and being consumed by humans)")
+                           ),
+                           tags$li("Very often, disease outbreaks are directly connected to environmental changes which expose people to pathogens that they have never encountered before.")
+                         ),
+                         tags$b("What is a satellite?"),
+                         tags$ul(
+                           tags$li("An artificial object moving in Earth’s gravitational field that may contain different types of instruments used for imaging (taking pictures) of the Earth’s surface."),
+                           tags$li("Many satellites will be sent into space with the specific goal of taking pictures of a certain type of geographic feature or phenomenon."),
+                           tags$li("This process of taking pictures of the Earth’s surface for analysis of environmental changes and processes is called “remote sensing”")
+                         ),
+                         tags$b("What is a sensor?"),
+                         tags$ul(
+                           tags$li("Sensors are instruments designed to be hosted by the satellite and take pictures of the Earth’s surface, often using different “bands” which correspond to varying spectra of light."),
+                           tags$li("These different “bands” of light are naturally emitted by reflections of sunlight off of the Earth’s surface, and a computer inside the sensor can decipher what different levels of light translate to in a quantitative value which is then used to represent the level of each type of radiation."),
+                           tags$li("Example: Red, Green, Blue, and Natural Infrared bands (among others) can be used to determine the level of vegetation growing in a specific area.")
+                         ),
+                         tags$b("What is a spatial resolution?"),
+                         tags$ul(
+                           tags$li("Sensors gather this information at a specific “spatial resolution”"),
+                           tags$li("Spatial resolution is the smallest area that the satellite is creating images at, and is typically described with dimensions such as 100 x 100 meters, which indicate the size of the pixel generated with the corresponding data."),
+                           tags$li("The pixel data is then transmitted to a receiver computer on Earth that compiles the information and generates images with all of the pixel data arranged together.")
+                         )
+                       )
+                     ),
+                     
+                     mainPanel(
+                       h4("Connecting the Dots"),
+                       div(
+                         tags$b("How are satellites used for predicting pandemics?"),
+                         tags$ul(
+                           tags$li("Since so many pandemics have transmission pathways that are caused by environmental processes, we know that examining environmental changes can be an impactful way to determine the risk of pandemics"),
+                           tags$li("By using remote sensing tools to look at different natural and anthropogenic environmental factors that play a role in disease transmission, we can understand the relative risk of pandemics in different areas around the world."),
+                           tags$ul(
+                             tags$li("Example: if deforestation is detected via remote sensing in some areas, we know that populations moving into those newly deforested areas are more vulnerable to vectorborne and zoonotic disease outbreaks because of proximity to animals and insect vectors.")
+                           ),
+                           tags$li("Remote sensing as a tool for pandemic preparedness has rapidly evolved since the global COVID-19 pandemic, with many research teams using it as a tool to study how environmental variables may have contributed to the spread of COVID-19"),
+                           tags$li("Oftentimes, remote sensing data is openly accessible for public use, meaning that anybody who is able to download and work with the data is able to use it to answer their research questions"),
+                           tags$li("This is particularly important in the context of global pandemic preparedness as it allows global researchers to approach this common goal from different angles")
+                         )
+                       ),
+                       h4("Future Developments"),
+                       div(
+                         tags$b("What is the purpose of this study?"),
+                         tags$ul(
+                           tags$li("The primary goal of this literature review is to examine the different studies that have been conducted related to pandemic preparedness using remote sensing systems and summarize the findings so that eventually a standardized pipeline for this process can be created"),
+                           tags$li("With that in mind, this review analyzes the articles through eight different lenses of replicability:"),
+                           tags$ul(
+                             tags$li("Disease reported"),
+                             tags$li("Type of disease"),
+                             tags$li("Study scale"),
+                             tags$li("Satellite used"),
+                             tags$li("Remote sensor used"),
+                             tags$li("Spatial resolution used"),
+                             tags$li("Geophysical environmental variables included"),
+                             tags$li("Terrestrial variables included")
+                           ),
+                           tags$li("It is our hope that by compiling these resources, we will be able to find common ground between them that can be used to develop a standardized pipeline of pandemic prediction using Earth observation systems (EOS)")
+                         )
+                       )
+                     )
                    )
                  )
                    
@@ -1340,7 +1361,6 @@ server <- function(input, output, session) {
 }
 
 shinyApp(ui, server)
-
 
 
 
